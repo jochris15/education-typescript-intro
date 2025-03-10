@@ -73,6 +73,35 @@ let food: { name: string, price?: number } = {
 }
 ```
 
+## Type vs Interface
+Selain bisa pake type untuk mendeclare sebuah tipe object, kita jg bisa menggunakan interface.
+perbedaan interface, hanya bisa digunakan untuk object dan juga interface bisa dideclare lagi (akan concat)
+
+```ts
+type Animal = {
+    name: string;
+    age: number;
+}
+
+// gabisa duplikat namanya
+// type Animal = {
+//     color: string[];
+//     type: string;
+// }
+
+interface Animal2 {
+    name: string;
+    age: number;
+}
+
+// akan concat ke type Animal2 pertama
+interface Animal2 {
+    color: string[];
+    type: string;
+    gender: "male" | "female";
+}
+```
+
 ## Any Types
 ```ts
 // sama aja kayak javascript jadinya
@@ -110,35 +139,6 @@ const names = ["agus", "bambang", "susi"]
 names.forEach((el) => {
     console.log(el.toUpperCase());
 })
-```
-
-## Type vs Interface
-Selain bisa pake type untuk mendeclare sebuah tipe object, kita jg bisa menggunakan interface.
-perbedaan interface, hanya bisa digunakan untuk object dan juga interface bisa dideclare lagi (akan concat)
-
-```ts
-type Animal = {
-    name: string;
-    age: number;
-}
-
-// gabisa duplikat namanya
-// type Animal = {
-//     color: string[];
-//     type: string;
-// }
-
-interface Animal2 {
-    name: string;
-    age: number;
-}
-
-// akan concat ke type Animal2 pertama
-interface Animal2 {
-    color: string[];
-    type: string;
-    gender: "male" | "female";
-}
 ```
 
 ## Generics
